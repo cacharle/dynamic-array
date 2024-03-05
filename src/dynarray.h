@@ -7,6 +7,29 @@
 #error "DYNARRAY_TYPE not defined"
 #endif
 
+/* NOTE: C11 _Generic
+ * works when type is mentioned manually:
+ *   #define dynarray_push(da, x) _Generic((da), \
+ *       dynarray_int*: dynarray_push_int,       \
+ *       dynarray_float*: dynarray_push_float    \
+ *   )(da, x)
+ * BUT doesn't work with type variable:
+ *   #define dynarray_push(da, x) _Generic((da), \
+ *       DT*: dynarray_push_int)(da, x)
+ */
+
+/* NOTE: void*
+ * I have previously made a implementation of dynamic arrays with void* but it was
+ * pretty clunky to always have to convert between void* and the actual type
+ *
+ * for (i = 0; i < length; i++)
+ *     printf("%d", (int)array[i]);
+ * dynarray_push(da, (void*)42);
+ *
+ * struct pos { int x, y; };
+ * ((struct pos*)(&array[i]))->x;
+ */
+
 #define T DYNARRAY_TYPE
 
 // TODO: understand why this works
@@ -94,6 +117,7 @@ void TOKEN_CONCAT(dynarray_print_, T)(const char *format, DT *da)
 }
 
 #undef T
+#undef DT
 #undef DYNARRAY_TYPE
 #undef DYNARRAY_NEW
 #undef DYNARRAY_RESIZE
