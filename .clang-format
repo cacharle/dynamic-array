@@ -1,0 +1,69 @@
+---
+# BasedOnStyle: LLVM
+---
+
+Language: Cpp
+
+# PPIndentWidth: 1  # clang-format 13 only
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+ColumnLimit: 85
+
+DerivePointerAlignment: false
+PointerAlignment: Right
+
+AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveAssignments: None
+AlignConsecutiveBitFields: Consecutive
+# AlignArrayOfStructures: Left  # clang-format 13 only
+AlignEscapedNewlines: Left
+AlignTrailingComments: true
+AlignAfterOpenBracket: Align
+
+# AlwaysBreakAfterDefinitionReturnType: All
+# AlwaysBreakAfterReturnType: All
+
+SpaceBeforeParens: ControlStatements
+
+AllowShortFunctionsOnASingleLine: None
+AllowShortBlocksOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: Never
+
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+
+AlwaysBreakBeforeMultilineStrings: false
+
+BinPackArguments: false
+BinPackParameters: false
+
+BreakBeforeBraces: Allman
+BreakBeforeTernaryOperators: true
+
+IncludeBlocks: Merge
+
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+
+PenaltyBreakBeforeFirstCallParameter: 1
+PenaltyBreakString: 1
+PenaltyExcessCharacter: 1000
+
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyParentheses: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesBeforeTrailingComments: 2
+SpacesInSquareBrackets: false
+SpaceAroundPointerQualifiers: Default
+
+AlignOperands: Align
+
+Cpp11BracedListStyle: true
+
+# vim:ft=yaml
