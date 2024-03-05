@@ -1,3 +1,3 @@
 sources = files(
-  'dynarray.c',
+  'utils.c',
 )
