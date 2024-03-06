@@ -76,7 +76,7 @@ void TOKEN_CONCAT(dynarray_destroy_, T)(DT *da)
 void DYNARRAY_RESIZE(DT *da, size_t capacity)
 {
     da->capacity = capacity;
-    da->array = xrealloc(da->array, capacity);
+    da->array = xrealloc(da->array, sizeof(T) * capacity);
 }
 
 #define GROWTH_FACTOR 2
